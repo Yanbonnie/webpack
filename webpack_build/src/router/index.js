@@ -1,25 +1,28 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-const User = ()=> import('@/components/user')
+
+
 
 Vue.use(Router)
 
 import '@/assets/css/index.scss';
 
-export default new Router({
+
+import headerData from './header';
+let router = new Router({
   mode:'history',
   base:'/bonnie',
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path:'/user',
-      name:'User',
-      component:User
-    }
-  ]
+  routes: headerData
+    
 })
+router.beforeEach((to,from,next)=>{
+  // console.log(router)
+  // console.log(to)
+  if(to.matched.some(item=>item.meta.isLogin)){
+    console.log("需要登录")
+  }else{
+    console.log("不需要登录")
+  }
+  next();
+})
+export default router;

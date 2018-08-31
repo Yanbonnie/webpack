@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <div>
-      <router-link to="/">首页</router-link>
-      <router-link to="/user">用户</router-link>      
+      <router-link :exact="item.name !== 'User' ? true : false "  :to="item.path" v-for="(item,index) in headerData" :key="index">{{item.title+item.name}}</router-link> 
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
+import headerData from '@/router/header'
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return{
+      headerData
+    }
+  }
 }
 </script>
 

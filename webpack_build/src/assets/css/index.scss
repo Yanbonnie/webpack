@@ -1,3 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+}
 body{
     background: #f5f5f5;
+}
+p{
+    text-align: left;
+}
+.user{
+    margin-top: 50px;
+}
+.user ul{
+    width: 100px;
+    float: left;
+}
+ul li{
+    list-style-type: none;
+    cursor: pointer;
+}
+a{
+    margin:  20px;
+}
+.router-link-active{
+    background: #ff503f;
+}
+.user .router-link-exact-active{
+    background: green;
+    color: #fff;
 }
